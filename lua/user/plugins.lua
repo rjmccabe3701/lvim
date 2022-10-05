@@ -22,10 +22,16 @@ lvim.plugins = {
   "ruifm/gitlinker.nvim",
   "mattn/vim-gist",
   "mattn/webapi-vim",
-  "folke/zen-mode.nvim",
+  -- "folke/zen-mode.nvim",
   "lvimuser/lsp-inlayhints.nvim",
   "lunarvim/darkplus.nvim",
   "lunarvim/templeos.nvim",
+  {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  },
+
+  -- "fgheng/winbar.nvim"
 
   -- https://github.com/jose-elias-alvarez/typescript.nvim
   -- "rmagatti/auto-session",
