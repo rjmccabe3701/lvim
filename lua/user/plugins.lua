@@ -37,3 +37,5 @@ lvim.plugins = {
   -- "rmagatti/auto-session",
   -- "rmagatti/session-lens"
 }
+
+lvim.builtin.nvimtree.active = false
