@@ -17,7 +17,8 @@ require "user.git"
 require "user.inlay-hints"
 require "user.whichkey"
 require "user.telescope"
-require "user.navic"
+require "user.go-ide"
+-- require "user.navic"
 -- require "user.winbar"
 --
 --Was trying to get navic to show the Go function names. Couldn't get it to work
