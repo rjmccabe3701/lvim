@@ -111,7 +111,8 @@ lvim.builtin.which_key.mappings["l"] = {
 lvim.builtin.which_key.mappings[";"] = nil
 lvim.builtin.which_key.mappings["c"] = nil
 lvim.builtin.which_key.mappings["L"] = nil
-lvim.builtin.which_key.mappings["s"] = nil
+-- lvim.builtin.which_key.mappings["s"] = nil
+lvim.builtin.which_key.mappings["g"] = nil
 lvim.builtin.which_key.mappings["w"] = nil
 
 local m_opts = {
