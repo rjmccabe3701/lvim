@@ -129,9 +129,40 @@ Nmap(",s", "<cmd>Vexplore<CR>")
 -- Nmap(",e", "<cmd>e <C-R>=expand(\"%:p:h\") . \"/\" <CR>")
 
 
---TOOO get the surround mappings to work
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = { "*.cpp", "*.c" },
---   -- enable wrap mode for json files only
---   command = "setlocal wrap",
--- })
+--In visual move type "S-" and does a custom surround
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = {
+    "cpp",
+    "c",
+  },
+  callback = function()
+    vim.cmd [[
+      let b:surround_45 = "#if 0\n\r\n#endif\n"
+    ]]
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = {
+    "markdown",
+  },
+  callback = function()
+    vim.cmd [[
+      let b:surround_45 = "```\n\r\n```"
+    ]]
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = {
+    "python",
+  },
+  callback = function()
+    vim.cmd [[
+      let b:surround_45 = "\"\"\"\n\r\n\"\"\""
+    ]]
+  end,
+})
+
+lvim.builtin.which_key.mappings['s']['s'] = {"<cmd>Telescope grep_string<cr>", "Find String"}
+
