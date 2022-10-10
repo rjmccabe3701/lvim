@@ -26,7 +26,8 @@ lvim.plugins = {
   -- "lvimuser/lsp-inlayhints.nvim",
   "lunarvim/darkplus.nvim",
   "tpope/vim-fugitive",
-  "tpope/vim-surround"
+  "tpope/vim-surround",
+  { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} },
   -- "nvim-lualine/lualine.nvim"
   -- "lunarvim/templeos.nvim",
   -- {
@@ -43,4 +44,21 @@ lvim.plugins = {
 
 lvim.builtin.nvimtree.active = false
 lvim.builtin.lualine.active = true
+require("dapui").setup({expand_lines = false})
 -- lvim.builtin.lualine.options.globalstatus = false
+local dap, dapui = require("dap"), require("dapui")
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  vim.keymap.set("n", "dI", function()
+    --This will inspect the variable under the cursor
+    dapui.eval()
+    --Need to run twice to focus in the variable window
+    dapui.eval()
+  end)
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  --Unmap the variable inspect shortcut
+  vim.keymap.del("n", "dI")
+end
+-- dap.listeners.before.event_exited["dapui_config"] = function()
+--   dapui.close()
+-- end
