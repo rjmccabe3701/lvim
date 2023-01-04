@@ -56,23 +56,23 @@ end
 -- Override Lvim's lualine
 lvim.builtin.lualine.on_config_done = function()
 
-   require('lualine').setup {
-     options = {
-       icons_enabled = false,
-       theme = 'onedark',
-       component_separators = '|',
-       section_separators = '',
-       globalstatus = true
-     },
-     sections = {
-       lualine_a = {'mode'},
-       lualine_b = {'branch', 'diff', 'diagnostics'},
-       lualine_c = {'filename'},
-       lualine_x = {current_treesitter_context, 'encoding', 'fileformat', 'filetype'},
-       lualine_y = {'progress'},
-       lualine_z = {'location'}
-     },
-   }
+require('lualine').setup {
+    options = {
+      icons_enabled = false,
+      theme = 'onedark',
+      component_separators = '|',
+      section_separators = '',
+      globalstatus = true
+    },
+    sections = {
+      lualine_a = {'mode'},
+      lualine_b = {'branch', 'diff', 'diagnostics'},
+      lualine_c = {'filename'},
+      lualine_x = {current_treesitter_context, 'encoding', 'fileformat', 'filetype'},
+      lualine_y = {'progress'},
+      lualine_z = {'location'}
+    },
+  }
 end
 
 
@@ -166,3 +166,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 lvim.builtin.which_key.mappings['s']['s'] = {"<cmd>Telescope grep_string<cr>", "Find String"}
 
+
+vim.api.nvim_create_autocmd(
+    { "BufEnter", "BufWinEnter" },
+    {
+      -- group = "lvim_user",
+      pattern = "*.go",
+      command = "setlocal noexpandtab",
+    })
