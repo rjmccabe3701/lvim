@@ -13,3 +13,13 @@ To get formatting etc working do this:
 ```
 :MasonInstall gopls golangci-lint-langserver delve goimports gofumpt gomodifytags gotests impl
 ```
+
+# Nerd fonts
+
+On windows, install via Chocolatey:
+
+```bash
+choco install nerd-fonts-hack
+```
+
+Then select that font in Putty
