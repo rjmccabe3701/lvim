@@ -61,7 +61,7 @@ dap.listeners.before.event_terminated["dapui_config"] = function()
   vim.keymap.del("n", "dI")
 end
 
-require("cscope_maps")
+require("cscope_maps").setup({})
 -- dap.listeners.before.event_exited["dapui_config"] = function()
 --   dapui.close()
 -- end
